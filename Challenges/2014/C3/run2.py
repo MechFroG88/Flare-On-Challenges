@@ -1,38 +1,5 @@
 local_205 = [0 for _ in range(513)]
 
-local_205[0] = 0xe8;
-local_205[1] = 0x0;
-local_205[2] = 0;
-local_205[3] = 0;
-local_205[4] = 0;
-local_205[5] = 0x8b;
-local_205[6] = 0x34;
-local_205[7] = 0x24;
-local_205[8] = 0x83;
-local_205[9] = 0xc6;
-local_205[10] = 0x1c;
-local_205[11] = 0xb9;
-local_205[12] = 0xdf;
-local_205[13] = 1;
-local_205[14] = 0;
-local_205[15] = 0;
-local_205[16] = 0x83;
-local_205[17] = 0xf9;
-local_205[18] = 0;
-local_205[19] = 0x74;
-local_205[20] = 7;
-local_205[21] = 0x80;
-local_205[22] = 0x36;
-local_205[23] = 0x66;
-local_205[24] = 0x46;
-local_205[25] = 0x49;
-local_205[26] = 0xeb;
-local_205[27] = 0xf4;
-local_205[28] = 0xe9;
-local_205[29] = 0x10;
-local_205[30] = 0;
-local_205[31] = 0;
-local_205[32] = 0;
 local_205[33] = 7;
 local_205[34] = 8;
 local_205[35] = 2;
@@ -518,11 +485,13 @@ local_205[512] = 0
 
 final = ""
 
+local_205 = local_205[33:]
+
 for i in local_205:
-    s = hex(i)[2:]
+    s = hex(i ^ 0x66)[2:]
     if (len(s) == 1):
         final += "\\x" + "0" + s
     else:
         final += "\\x" +s
 
-open("out", "w").write(final)
+open("out2", "w").write(final)
