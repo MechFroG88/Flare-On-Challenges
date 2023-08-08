@@ -514,9 +514,16 @@ local_205[510] = 0x95;
 local_205[511] = 0xc9;
 local_205[512] = 0
 
+# open("out", "wb").write(bytes(local_205))
+
+final = ""
+
+
 for i in local_205:
     s = hex(i)[2:]
     if (len(s) == 1):
-        print("0" + s, end='')
+        final += "\\x" + "0" + s
     else:
-        print(s, end='')
+        final += "\\x" +s
+
+open("out", "w").write(final)
